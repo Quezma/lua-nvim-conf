@@ -18,4 +18,8 @@ return require('packer').startup(function(use)
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {'neoclide/coc.nvim', branch = 'release'}
+  use {
+    'windwp/nvim-autopairs',
+    config = function() require("nvim-autopairs").setup {} end
+  }
 end)
