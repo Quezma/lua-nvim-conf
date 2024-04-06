@@ -1,6 +1,7 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+  use {'wbthomason/packer.nvim'}
   use "ellisonleao/gruvbox.nvim"
   use {
     'nvim-tree/nvim-tree.lua',
@@ -17,9 +18,19 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use {'neoclide/coc.nvim', branch = 'release'}
+  use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" }})
   use {
-    'windwp/nvim-autopairs',
-    config = function() require("nvim-autopairs").setup {} end
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim"
   }
+  use {'neovim/nvim-lspconfig'}
+  use {'hrsh7th/nvim-cmp'}
+  use {'hrsh7th/cmp-nvim-lsp'}
+  use {'hrsh7th/cmp-buffer'}
+  use {'hrsh7th/cmp-path'}
+  use {'hrsh7th/cmp-cmdline'}
+  use {'nvim-treesitter/nvim-treesitter'}
+  use {'mhanberg/elixir.nvim'}
+  use {'hrsh7th/vim-vsnip'}
+  use {'hrsh7th/cmp-vsnip'}
 end)
